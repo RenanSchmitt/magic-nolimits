@@ -82,7 +82,7 @@
 
 <?php
 
-    // require_once('inc.connect.php');
+    require_once('inc.connect.php');
     // echo $link;
     if( isset($_GET['pg']) and !empty($_GET['pg'])){
         $pag= $_GET['pg'];

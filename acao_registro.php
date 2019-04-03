@@ -1,5 +1,5 @@
 <?php
-
+    require_once('inc.connect.php');
     print_r($_POST);
 
     (isset($_POST['nome']) and !empty($_POST['nome'])) ? $nome = $_POST['nome'] : $erro = true;
@@ -19,7 +19,7 @@
                 email,
                 senha)
 
-            VALUES("'.$nome.'"
+            VALUES("'.$nome.'",
                 "'.$email.'","'.$senha.'")';
 
             echo $query;
