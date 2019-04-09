@@ -40,6 +40,12 @@
         <a class="navbar-item" href="index.php?pg=cadastroprod">
             Cadastrar Produtos
         </a>
+        <a class="navbar-item" href="index.php?pg=fornecedores">
+            Fornecedores
+        </a>
+        <a class="navbar-item" href="index.php?pg=cadastroforn">
+            Cadastrar Fornecedores
+        </a>
 
         <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">
