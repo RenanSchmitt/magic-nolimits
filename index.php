@@ -46,6 +46,9 @@
         <a class="navbar-item" href="index.php?pg=cadastroforn">
             Cadastrar Fornecedores
         </a>
+        <a class="navbar-item" href="index.php?pg=cadastrofilial">
+            Cadastrar Filial
+        </a>
 
         <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">

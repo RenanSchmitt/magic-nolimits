@@ -1,5 +1,5 @@
-<form id="registro" action="acao_cadastroforn.php" method="post">
-    <legend>Digite as informações do fornecedor:</legend>
+<form id="registro" action="acao_cadastrofilial.php" method="post">
+    <legend>Digite as informações da filial:</legend>
     <fieldset>
         <p>
             <label for="nome">Nome: </label>
