@@ -4,9 +4,7 @@
 
     (isset($_POST['nome']) and !empty($_POST['nome'])) ? $nome = $_POST['nome'] : $erro = true;
 
-    (isset($_POST['email']) and !empty($_POST['email'])) ? $email = $_POST['email'] : $erro = true;
-
-    (isset($_POST['senha']) and !empty($_POST['senha'])) ? $senha = $_POST['senha'] : $erro = true;
+    (isset($_POST['valor']) and !empty($_POST['valor'])) ? $valor = $_POST['valor'] : $erro = true;
 
     (isset($_POST['acao']) and !empty($_POST['acao'])) ? $acao = $_POST['acao'] : $erro = true;
 
@@ -14,18 +12,17 @@
         case 'insert':
             echo 'inserir registro';
             
-            $query = 'INSERT INTO cliente (
+            $query = 'INSERT INTO produto (
                 nome,
-                email,
-                senha)
+                valor)
 
-            VALUES("'.$nome.'",
-                "'.$email.'","'.$senha.'")';
+                VALUES("'.$nome.'",
+                "'.$valor.'")';
 
-            // echo $query;
+            echo $query;
             mysql_query($query, $link) or die(mysql_error());
-            echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=index.php?pg=home'>";
-            echo "ta salvando cara";
+           
+        
         break;
         case 'update':
             echo 'update';

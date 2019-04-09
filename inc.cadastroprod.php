@@ -1,5 +1,5 @@
-<form id="registro" action="acao_registro.php" method="post">
-    <legend>Digite suas informações:</legend>
+<form id="registro" action="acao_cadastroprod.php" method="post">
+    <legend>Digite as informações do produto:</legend>
     <fieldset>
         <p>
             <label for="nome">Nome: </label>
@@ -7,14 +7,9 @@
         </p>
 
         <p>
-            <label for="nick">E-mail:</label>
-            <input name="email" id="email" type="text" />
+            <label for="valor">Valor:</label>
+            <input name="valor" id="valor" type="text" />
         </p>
-
-        <p>
-            <label for="senha">Senha:</label>
-            <input name="senha" id="password" type="password" />
-        </p> -->
 
         <input type="hidden" name="acao" value="insert">
 

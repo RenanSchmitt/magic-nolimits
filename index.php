@@ -37,8 +37,8 @@
             Produtos
         </a>
 
-        <a class="navbar-item" href="index.php?pg=registro">
-            Registro
+        <a class="navbar-item" href="index.php?pg=cadastroprod">
+            Cadastrar Produtos
         </a>
 
         <div class="navbar-item has-dropdown is-hoverable">
@@ -67,7 +67,7 @@
         <div class="navbar-end">
         <div class="navbar-item">
             <div class="buttons">
-            <a class="button is-primary">
+            <a class="button is-primary" href="index.php?pg=registro">
                 <strong>Sign up</strong>
             </a>
             <a class="button is-light">
