@@ -106,5 +106,5 @@
 
 <?php
 
-// mysql_close();
+mysql_close();
 ?>

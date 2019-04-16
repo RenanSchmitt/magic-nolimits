@@ -37,8 +37,6 @@
                     <a href="#">Editar</a>
                     <a href="#">Excluir</a>
                     </td>';
-
-
                 echo '</tr>';
             }
         } else {
