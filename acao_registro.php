@@ -22,16 +22,16 @@
             VALUES("'.$nome.'",
                 "'.$email.'","'.$senha.'")';
 
-            mysql_query($query, $link) or die(mysql_error());
-            header("Location: index.php?pg=home ");
-           
-        break;
-        case 'update':
-            echo 'update';
-        break;
-        case 'delete':
-            echo 'delete';
-        break;
+                mysql_query($query, $link) or die(mysql_error());
+                mysql_close();
+                header("Location: index.php?pg=registro&msg=true");
+                exit; 
+            case 'update':
+                echo 'update';
+                break;
+            case 'delete':
+                echo 'delete';
+                break;
 
     }
 

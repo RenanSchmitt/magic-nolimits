@@ -1,4 +1,9 @@
 <?php
+    
+    if(isset($_GET['msg']) == true){
+        echo "<script type=\"text/javascript\">alert('Produto cadastrado!');</script>";
+    }
+    
     require_once('inc.connect.php');
     $query = 'SELECT id_fornecedor, nome
     FROM fornecedor';

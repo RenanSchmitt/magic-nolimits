@@ -21,16 +21,17 @@
 
            
             mysql_query($query, $link) or die(mysql_error());
-            header("Location: index.php?pg=home ");
-           
-        
-        break;
+            mysql_close();
+            header("Location: index.php?pg=cadastrofilial&msg=true");
+            exit; 
+            break;
         case 'update':
             echo 'update';
         break;
         case 'delete':
             echo 'delete';
         break;
+     
 
     }
 

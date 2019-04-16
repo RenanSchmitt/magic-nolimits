@@ -1,3 +1,10 @@
+<?php
+    if(isset($_GET['msg']) == true){
+        echo "<script type=\"text/javascript\">alert('Fornecedor cadastrado!');</script>";
+    }
+
+?>
+
 <form id="registro" action="acao_cadastroforn.php" method="post">
     <legend>Digite as informações do fornecedor:</legend>
     <fieldset>

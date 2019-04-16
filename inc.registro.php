@@ -1,3 +1,10 @@
+<?php
+    
+    if(isset($_GET['msg']) == true){
+        echo "<script type=\"text/javascript\">alert('Cliente cadastrado!');</script>";
+    }
+?>
+
 <form id="registro" action="acao_registro.php" method="post">
     <legend>Digite suas informações:</legend>
     <fieldset>

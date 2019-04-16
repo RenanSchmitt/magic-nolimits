@@ -1,3 +1,10 @@
+<?PHP
+    if(isset($_GET['msg']) == true){
+        echo "<script type=\"text/javascript\">alert('Filial cadastrado!');</script>";
+    }
+
+?>
+
 <form id="registro" action="acao_cadastrofilial.php" method="post">
     <legend>Digite as informações da filial:</legend>
     <fieldset>

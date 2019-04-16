@@ -25,7 +25,9 @@
 
             echo $query;
             mysql_query($query, $link) or die(mysql_error());
-            header("Location: index.php?pg=home ");
+            mysql_close();
+            header("Location: index.php?pg=cadastroprod&msg=true");
+            exit;  
            
         
         break;
@@ -35,8 +37,8 @@
         case 'delete':
             echo 'delete';
         break;
-
+        
+  
     }
-
 
 ?>
