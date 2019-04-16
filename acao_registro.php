@@ -22,9 +22,8 @@
             VALUES("'.$nome.'",
                 "'.$email.'","'.$senha.'")';
 
-            // echo $query;
             mysql_query($query, $link) or die(mysql_error());
-            echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=index.php?pg=home'>";
+            header("Location: index.php?pg=home ");
            
         break;
         case 'update':

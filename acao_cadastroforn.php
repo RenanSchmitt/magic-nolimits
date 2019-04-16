@@ -21,7 +21,7 @@
 
            
             mysql_query($query, $link) or die(mysql_error());
-            header("Location: index.php?pg=fornecedores ");
+            header("Location: index.php?pg=home ");
         
         break;
         case 'update':
