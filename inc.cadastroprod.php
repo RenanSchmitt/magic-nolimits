@@ -8,6 +8,10 @@
     $query = 'SELECT id_fornecedor, nome
     FROM fornecedor';
     $res = mysql_query($query, $link) or die(mysql_error());
+
+    $query2 = 'SELECT id_filial, nome
+    FROM filial';
+    $res2 = mysql_query($query2, $link) or die(mysql_error());
     
 ?>
 
@@ -35,6 +39,22 @@
                         }
                     } else {
                         echo '<option value="Não há fornecedores"> Não há fornecedores</option>';
+                    }
+                ?>
+        </select>
+        
+        <label for="nome">Filial: </label>
+        <select name="filial" id="filial">
+                <?php
+                    $qtd2 = mysql_num_rows($res2);
+                    echo $qtd2;
+                    if ($qtd2 > 0){
+                        while($linha2 = mysql_fetch_assoc($res2)){
+                            echo '<option value="'.$linha2['id_filial'].'"> '.$linha2['nome'].' </option>';
+                            
+                        }
+                    } else {
+                        echo '<option value="Não há filial"> Não há filial</option>';
                     }
                 ?>
         </select>

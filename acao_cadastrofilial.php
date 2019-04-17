@@ -3,7 +3,7 @@
     print_r($_POST);
 
     (isset($_POST['nome']) and !empty($_POST['nome'])) ? $nome = $_POST['nome'] : $erro = true;
-
+    
     (isset($_POST['ende']) and !empty($_POST['ende'])) ? $ende = $_POST['ende'] : $erro = true;
 
     (isset($_POST['acao']) and !empty($_POST['acao'])) ? $acao = $_POST['acao'] : $erro = true;
@@ -18,8 +18,7 @@
 
                 VALUES("'.$nome.'",
                 "'.$ende.'")';
-
-           
+                           
             mysql_query($query, $link) or die(mysql_error());
             mysql_close();
             header("Location: index.php?pg=cadastrofilial&msg=true");

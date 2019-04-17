@@ -8,6 +8,8 @@
 
     (isset($_POST['fornecedor']) and !empty($_POST['fornecedor'])) ? $fornecedor = $_POST['fornecedor'] : $erro = true;
 
+    (isset($_POST['filial']) and !empty($_POST['filial'])) ? $filial = $_POST['filial'] : $erro = true;
+
     (isset($_POST['acao']) and !empty($_POST['acao'])) ? $acao = $_POST['acao'] : $erro = true;
 
     switch ($acao) {
@@ -17,11 +19,13 @@
             $query = 'INSERT INTO produto (
                 nome,
                 valor,
-                id_fornecedor)
+                id_fornecedor,
+                id_filial)
 
                 VALUES("'.$nome.'",
                 "'.$valor.'",
-                "'.$fornecedor.'")';
+                "'.$fornecedor.'",
+                "'.$filial.'")';
 
             echo $query;
             mysql_query($query, $link) or die(mysql_error());
