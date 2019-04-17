@@ -56,11 +56,11 @@
             </a>
 
             <div class="navbar-dropdown">
-            <a class="navbar-item">
-                Sobre nós
+            <a class="navbar-item" href="index.php?pg=filial">
+                Filiais
             </a>
-            <a class="navbar-item">
-                Como participar
+            <a class="navbar-item" href="index.php?pg=clientes">
+                Clientes cadastrados
             </a>
             <a class="navbar-item">
                 Contato

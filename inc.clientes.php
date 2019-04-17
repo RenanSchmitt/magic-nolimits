@@ -1,3 +1,4 @@
+
 <?php
     require_once('inc.connect.php');
 ?>
@@ -11,15 +12,14 @@
     <tr>
         <td> ID </td>
         <td> NOME </td>
-        <td> VALOR </td>
-        <td> FILIAL </td>
-        <td> FORNECEDOR </td>
-        <td> ACÃO </td>
+        <td> EMAIL </td>
+        <td> SENHA </td>
+        <td> ACOES </td>
     <tr>
     
     <?php
-        $query = 'SELECT id_produto, nome, valor, id_filial, id_fornecedor
-        FROM produto
+        $query = 'SELECT id, nome, email, senha
+        FROM cliente
         ORDER BY nome';
         
         $res = mysql_query($query, $link);
@@ -31,11 +31,10 @@
         if( $qtd > 0 ){
             while($linha = mysql_fetch_assoc($res)){
                 echo '<tr>';
-                echo '<td>'.$linha['id_produto'].'</td>';
+                echo '<td>'.$linha['id'].'</td>';
                 echo '<td>'.$linha['nome'].'</td>';
-                echo '<td>'.$linha['valor'].'</td>';
-                echo '<td>'.$linha['id_filial'].'</td>';
-                echo '<td>'.$linha['id_fornecedor'].'</td>';
+                echo '<td>'.$linha['email'].'</td>';
+                echo '<td>'.$linha['senha'].'</td>';
 
                 echo '<td>
                     <a href="#">Editar</a>
