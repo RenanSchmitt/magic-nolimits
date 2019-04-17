@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 09-Abr-2019 às 22:56
+-- Generation Time: 17-Abr-2019 às 02:32
 -- Versão do servidor: 10.1.37-MariaDB
 -- versão do PHP: 5.6.40
 
@@ -35,23 +35,6 @@ CREATE TABLE `cliente` (
   `senha` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `cliente`
---
-
-INSERT INTO `cliente` (`id`, `nome`, `email`, `senha`) VALUES
-(1, 'Renan', 'reeschmitt@hotmail.com', '123456789'),
-(2, 'renan', 'renanschmitt@ulbra.com', '123456789'),
-(3, '21213213', '213213', '213123'),
-(4, '321333', '333', '33'),
-(5, '321333', '333', '2121'),
-(6, '321333', '333', '2121'),
-(7, '221', '2112', '33'),
-(8, '1212', '1212', '1212'),
-(9, 'salvou', 'salvoumesmo@gmail.com', '12312312'),
-(10, 'Thiago', 'thiago@ulbra.com', '123456'),
-(11, 'TESTEEE', '213213', '1');
-
 -- --------------------------------------------------------
 
 --
@@ -60,7 +43,7 @@ INSERT INTO `cliente` (`id`, `nome`, `email`, `senha`) VALUES
 
 CREATE TABLE `filial` (
   `id_filial` int(5) NOT NULL,
-  `nome` int(255) DEFAULT NULL,
+  `nome` varchar(255) DEFAULT NULL,
   `ende` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -69,7 +52,8 @@ CREATE TABLE `filial` (
 --
 
 INSERT INTO `filial` (`id_filial`, `nome`, `ende`) VALUES
-(1, 0, 'RUA DOS ALFENEIROS, 123');
+(23, 'RUA DA PRAIA', 'Rua da Praia, 123'),
+(24, 'Borges de Medeiros', 'Borges de Medeiros, 23 - Porto Alegre');
 
 -- --------------------------------------------------------
 
@@ -88,10 +72,9 @@ CREATE TABLE `fornecedor` (
 --
 
 INSERT INTO `fornecedor` (`id_fornecedor`, `nome`, `ende`) VALUES
-(1, 'NERDZ', 'RUA SEILA, 421312'),
-(2, 'rua dos alfeneiros', '123'),
-(3, 'seguracards', '4fwefew'),
-(4, '123', '123');
+(19, 'Wizards', '23 de Outubro, 234'),
+(21, 'PEARL', 'Los Angeles, 1298 - CalifÃ³rnia'),
+(22, 'Magic Coast', 'Saint Luis, 234 - MIAMI');
 
 -- --------------------------------------------------------
 
@@ -102,7 +85,7 @@ INSERT INTO `fornecedor` (`id_fornecedor`, `nome`, `ende`) VALUES
 CREATE TABLE `produto` (
   `id_produto` int(5) UNSIGNED NOT NULL,
   `nome` varchar(255) NOT NULL,
-  `valor` int(6) NOT NULL,
+  `valor` float NOT NULL,
   `id_filial` int(5) NOT NULL,
   `id_fornecedor` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -112,17 +95,8 @@ CREATE TABLE `produto` (
 --
 
 INSERT INTO `produto` (`id_produto`, `nome`, `valor`, `id_filial`, `id_fornecedor`) VALUES
-(1, 'Booster War of Sparks', 0, 0, 0),
-(3, '12', 0, 0, 0),
-(4, '12', 0, 0, 0),
-(5, '12', 0, 0, 0),
-(6, '12', 0, 0, 0),
-(7, '12', 0, 0, 0),
-(8, 'awddw', 0, 0, 0),
-(9, 'Booster War of Sparks', 15, 0, 0),
-(10, 'Booster Guilds of Ravnica', 13, 0, 0),
-(11, 'Dado D20', 2, 0, 0),
-(12, '', 0, 0, 0);
+(31, 'Booster War of Sparks', 15, 23, 19),
+(32, 'Booster Guilds of Ravnica', 10.4, 24, 22);
 
 -- --------------------------------------------------------
 
@@ -198,25 +172,25 @@ ALTER TABLE `venda_itens`
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `filial`
 --
 ALTER TABLE `filial`
-  MODIFY `id_filial` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_filial` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `fornecedor`
 --
 ALTER TABLE `fornecedor`
-  MODIFY `id_fornecedor` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_fornecedor` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `id_produto` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_produto` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `vendas`
