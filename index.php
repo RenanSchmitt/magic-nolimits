@@ -37,18 +37,18 @@
             Produtos
         </a>
 
-        <a class="navbar-item" href="index.php?pg=cadastroprod">
-            Cadastrar Produtos
-        </a>
         <a class="navbar-item" href="index.php?pg=fornecedores">
             Fornecedores
         </a>
-        <a class="navbar-item" href="index.php?pg=cadastroforn">
-            Cadastrar Fornecedores
+
+        <a class="navbar-item" href="index.php?pg=filial">
+                    Filiais
         </a>
-        <a class="navbar-item" href="index.php?pg=cadastrofilial">
-            Cadastrar Filial
+
+        <a class="navbar-item" href="index.php?pg=clientes">
+                Clientes cadastrados
         </a>
+
 
         <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">
@@ -56,19 +56,20 @@
             </a>
 
             <div class="navbar-dropdown">
-            <a class="navbar-item" href="index.php?pg=filial">
-                Filiais
-            </a>
-            <a class="navbar-item" href="index.php?pg=clientes">
-                Clientes cadastrados
-            </a>
-            <a class="navbar-item">
-                Contato
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-                Reportar um Bug
-            </a>
+
+                <a class="navbar-item" href="index.php?pg=cadastroprod">
+                    Cadastrar Produtos
+                </a>
+                <a class="navbar-item" href="index.php?pg=cadastroforn">
+                    Cadastrar Fornecedores
+                </a>
+                <a class="navbar-item" href="index.php?pg=cadastrofilial">
+                    Cadastrar Filial
+                </a>
+                <hr class="navbar-divider">
+                <a class="navbar-item">
+                    Reportar um Bug
+                </a>
             </div>
         </div>
         </div>
