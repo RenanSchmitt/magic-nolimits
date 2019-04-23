@@ -46,7 +46,11 @@
         </a>
 
         <a class="navbar-item" href="index.php?pg=clientes">
-                Clientes cadastrados
+                Clientes
+        </a>
+
+        <a class="navbar-item" href="index.php?pg=clientes">
+                Vendas
         </a>
 
 
@@ -65,6 +69,9 @@
                 </a>
                 <a class="navbar-item" href="index.php?pg=cadastrofilial">
                     Cadastrar Filial
+                </a>
+                <a class="navbar-item" href="index.php?pg=cadastrovenda">
+                    Cadastrar Venda
                 </a>
                 <hr class="navbar-divider">
                 <a class="navbar-item">
