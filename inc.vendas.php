@@ -1,5 +1,8 @@
 <?php
     require_once('inc.connect.php');
+    if(isset($_GET['msg']) == true){
+        echo "<script type=\"text/javascript\">alert('Venda excluida com sucesso!');</script>";
+    }
 ?>
 <h2>Página ainda em desenvolvimento!</h2>
 <!-- <img src="./images/construcao.png" width="500" height="500"> -->
@@ -39,7 +42,7 @@
 
                 echo '<td>
                     <a href="#">Editar</a>
-                    <a href="#">Excluir</a>
+                    <a href="acao_cadastrovenda.php?acao=delete&id_venda_itens='.$linha['id_venda_itens'].'">Excluir</a>
                     </td>';
                 echo '</tr>';
             }

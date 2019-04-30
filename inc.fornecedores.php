@@ -1,11 +1,10 @@
-<!-- <h2>Página ainda em desenvolvimento!</h2>
-<img src="./images/construcao.png" width="500" height="500"> -->
 
 <?php
     require_once('inc.connect.php');
+    if(isset($_GET['msg']) == true){
+        echo "<script type=\"text/javascript\">alert('Fornecedor excluido com sucesso!');</script>";
+    }
 ?>
-<h2>Página ainda em desenvolvimento!</h2>
-<!-- <img src="./images/construcao.png" width="500" height="500"> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +37,8 @@
 
                 echo '<td>
                     <a href="#">Editar</a>
-                    <a href="#">Excluir</a>
+                    <a href="acao_cadastroforn.php?acao=delete&id_fornecedor='.$linha['id_fornecedor'].'">Excluir</a>
+
                     </td>';
                 echo '</tr>';
             }

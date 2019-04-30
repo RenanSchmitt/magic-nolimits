@@ -6,7 +6,7 @@
 
     (isset($_POST['ende']) and !empty($_POST['ende'])) ? $ende = $_POST['ende'] : $erro = true;
 
-    (isset($_POST['acao']) and !empty($_POST['acao'])) ? $acao = $_POST['acao'] : $erro = true;
+    (isset($_REQUEST['acao']) and !empty($_REQUEST['acao'])) ? $acao = $_REQUEST['acao'] : $erro = true;
 
     switch ($acao) {
         case 'insert':
@@ -30,6 +30,15 @@
         break;
         case 'delete':
             echo 'delete';
+            (isset($_GET['id_fornecedor']) and !empty($_GET['id_fornecedor'])) ? $id_fornecedor = $_GET['id_fornecedor'] : $erro = true;
+
+            $query = 'DELETE FROM fornecedor 
+            WHERE id_fornecedor = '.$id_fornecedor;  
+            
+            mysql_query($query, $link) or die(mysql_error());
+            mysql_close();
+            header("Location: index.php?pg=fornecedores&msg=true");
+            exit; 
         break;
         
 

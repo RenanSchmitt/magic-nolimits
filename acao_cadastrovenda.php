@@ -10,7 +10,7 @@
 
     (isset($_POST['filial']) and !empty($_POST['filial'])) ? $filial = $_POST['filial'] : $erro = true;
 
-    (isset($_POST['acao']) and !empty($_POST['acao'])) ? $acao = $_POST['acao'] : $erro = true;
+    (isset($_REQUEST['acao']) and !empty($_REQUEST['acao'])) ? $acao = $_REQUEST['acao'] : $erro = true;
 
     switch ($acao) {
         case 'insert':
@@ -38,6 +38,15 @@
         break;
         case 'delete':
             echo 'delete';
+            (isset($_GET['id_venda_itens']) and !empty($_GET['id_venda_itens'])) ? $id_venda_itens = $_GET['id_venda_itens'] : $erro = true;
+
+            $query = 'DELETE FROM venda_itens 
+            WHERE id_venda_itens = '.$id_venda_itens;  
+            
+            mysql_query($query, $link) or die(mysql_error());
+            mysql_close();
+            header("Location: index.php?pg=vendas&msg=true");
+            exit; 
         break;
         
   

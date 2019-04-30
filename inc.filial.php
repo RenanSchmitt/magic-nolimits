@@ -1,5 +1,8 @@
 <?php
     require_once('inc.connect.php');
+    if(isset($_GET['msg']) == true){
+        echo "<script type=\"text/javascript\">alert('Filial excluido com sucesso!');</script>";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +37,8 @@
 
                 echo '<td>
                     <a href="#">Editar</a>
-                    <a href="#">Excluir</a>
+                    <a href="acao_cadastrofilial.php?acao=delete&id_filial='.$linha['id_filial'].'">Excluir</a>
+
                     </td>';
                 echo '</tr>';
             }

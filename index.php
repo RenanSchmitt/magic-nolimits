@@ -49,7 +49,7 @@
                 Clientes
         </a>
 
-        <a class="navbar-item" href="index.php?pg=clientes">
+        <a class="navbar-item" href="index.php?pg=vendas">
                 Vendas
         </a>
 

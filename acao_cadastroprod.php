@@ -41,8 +41,6 @@
         break;
         case 'delete':
             echo 'delete';
-            // print_r($_GET);
-            // die;
             (isset($_GET['id_produto']) and !empty($_GET['id_produto'])) ? $id_contato = $_GET['id_produto'] : $erro = true;
 
             $query = 'DELETE FROM produto 

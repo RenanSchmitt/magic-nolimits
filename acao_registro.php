@@ -8,7 +8,7 @@
 
     (isset($_POST['senha']) and !empty($_POST['senha'])) ? $senha = $_POST['senha'] : $erro = true;
 
-    (isset($_POST['acao']) and !empty($_POST['acao'])) ? $acao = $_POST['acao'] : $erro = true;
+    (isset($_REQUEST['acao']) and !empty($_REQUEST['acao'])) ? $acao = $_REQUEST['acao'] : $erro = true;
 
     switch ($acao) {
         case 'insert':
@@ -31,6 +31,16 @@
                 break;
             case 'delete':
                 echo 'delete';
+                echo 'delete';
+                (isset($_GET['id']) and !empty($_GET['id'])) ? $id = $_GET['id'] : $erro = true;
+    
+                $query = 'DELETE FROM cliente 
+                WHERE id = '.$id;  
+                
+                mysql_query($query, $link) or die(mysql_error());
+                mysql_close();
+                header("Location: index.php?pg=clientes&msg=true");
+                exit;
                 break;
 
     }
