@@ -12,6 +12,9 @@
 
     (isset($_REQUEST['acao']) and !empty($_REQUEST['acao'])) ? $acao = $_REQUEST['acao'] : $erro = true;
 
+    (isset($_POST['id_prod']) and !empty($_POST['id_prod'])) ? $id_prod = $_POST['id_prod'] : $erro = true;
+
+
     switch ($acao) {
         case 'insert':
             echo 'inserir registro';
@@ -32,11 +35,19 @@
             mysql_close();
             header("Location: index.php?pg=cadastroprod&msg=true");
             exit;  
-           
+            
         
         break;
         case 'update':
-            echo 'update';
+            
+            $query = 'UPDATE produto SET nome = "'.$nome.'", valor = "'.$valor.'", id_fornecedor = "'.$fornecedor.'", id_filial = "'.$filial.'" WHERE id_produto = '.$id_prod;
+
+            echo $query;
+            mysql_query($query, $link) or die(mysql_error());
+            mysql_close();
+            header("Location: index.php?pg=produtos&msg=true&action=update");
+            exit;  
+           
             
         break;
         case 'delete':
@@ -48,7 +59,7 @@
             
             mysql_query($query, $link) or die(mysql_error());
             mysql_close();
-            header("Location: index.php?pg=produtos&msg=true");
+            header("Location: index.php?pg=produtos&msg=true&action=delete");
             exit; 
             
         break;
