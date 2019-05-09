@@ -1,9 +1,14 @@
 
 <?php
     require_once('inc.connect.php');
-    if(isset($_GET['msg']) == true){
+    if(isset($_GET['msg']) == true && $_GET['action'] == 'delete'){
         echo "<script type=\"text/javascript\">alert('Fornecedor excluido com sucesso!');</script>";
     }
+
+    if(isset($_GET['msg']) == true && $_GET['action'] == 'update'){
+        echo "<script type=\"text/javascript\">alert('Fornecedor alterado com sucesso!');</script>";
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +41,7 @@
                 echo '<td>'.$linha['ende'].'</td>';
 
                 echo '<td>
-                    <a href="#">Editar</a>
+                    <a href="index.php?pg=atualizaforn&id_forn='.$linha['id_fornecedor'].'    ">Editar</a>
                     <a href="acao_cadastroforn.php?acao=delete&id_fornecedor='.$linha['id_fornecedor'].'">Excluir</a>
 
                     </td>';

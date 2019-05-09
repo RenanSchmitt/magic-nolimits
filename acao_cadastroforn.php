@@ -8,6 +8,8 @@
 
     (isset($_REQUEST['acao']) and !empty($_REQUEST['acao'])) ? $acao = $_REQUEST['acao'] : $erro = true;
 
+    (isset($_POST['id_forn']) and !empty($_POST['id_forn'])) ? $id_forn = $_POST['id_forn'] : $erro = true;
+    
     switch ($acao) {
         case 'insert':
             echo 'inserir registro';
@@ -27,6 +29,15 @@
         break;
         case 'update':
             echo 'update';
+
+            $query = 'UPDATE fornecedor SET nome = "'.$nome.'", ende = "'.$ende.'" WHERE id_fornecedor = '.$id_forn;
+
+            echo $query;
+            mysql_query($query, $link) or die(mysql_error());
+            mysql_close();
+            header("Location: index.php?pg=fornecedores&msg=true&action=update");
+            exit;  
+
         break;
         case 'delete':
             echo 'delete';
@@ -37,7 +48,7 @@
             
             mysql_query($query, $link) or die(mysql_error());
             mysql_close();
-            header("Location: index.php?pg=fornecedores&msg=true");
+            header("Location: index.php?pg=fornecedores&msg=true&action=delete");
             exit; 
         break;
         
