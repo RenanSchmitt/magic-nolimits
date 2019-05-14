@@ -43,31 +43,31 @@
         <select name="fornecedor" id="fornecedor">
                 <?php
                     $qtd = mysql_num_rows($res);
-                    echo $qtd;
-                    if ($qtd > 0){
                         while($linha = mysql_fetch_assoc($res)){
-                            echo '<option value="'.$linha['id_fornecedor'].'"> '.$linha['nome'].' </option>';
-                            
+                            if($linha['id_fornecedor']==$content['id_fornecedor']) {
+                                echo '<option value="'.$linha['id_fornecedor'].'" selected> '.$linha['nome'].' </option>';
+                            } else {
+                                echo '<option value =" '.$linha['id_fornecedor'].'" >'.$linha['nome'].'</option>';;
+                            }
                         }
-                    } else {
-                        echo '<option value="Não há fornecedores"> Não há fornecedores</option>';
-                    }
+                        
+                   
                 ?>
         </select>
         
         <label for="nome">Filial: </label>
         <select name="filial" id="filial">
-                <?php
+        <?php
                     $qtd2 = mysql_num_rows($res2);
-                    echo $qtd2;
-                    if ($qtd2 > 0){
                         while($linha2 = mysql_fetch_assoc($res2)){
-                            echo '<option value="'.$linha2['id_filial'].'"> '.$linha2['nome'].' </option>';
-                            
+                            if($linha2['id_filial']==$content['id_filial']) {
+                                echo '<option value="'.$linha2['id_filial'].'" selected> '.$linha2['nome'].' </option>';
+                            } else {
+                                echo '<option value =" '.$linha2['id_filial'].'" >'.$linha2['nome'].'</option>';;
+                            }
                         }
-                    } else {
-                        echo '<option value="Não há filial"> Não há filial</option>';
-                    }
+                        
+                   
                 ?>
         </select>
 

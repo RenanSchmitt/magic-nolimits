@@ -7,6 +7,7 @@
     if(isset($_GET['msg']) == true && $_GET['action'] == 'update'){
         echo "<script type=\"text/javascript\">alert('Venda alterado com sucesso!');</script>";
     }
+    
 ?>
 <h2>Página ainda em desenvolvimento!</h2>
 <!-- <img src="./images/construcao.png" width="500" height="500"> -->

@@ -13,7 +13,7 @@
     FROM produto';
     $res2 = mysql_query($query2, $link) or die(mysql_error());
     $content2 = mysql_fetch_assoc($res2);
-    $qtd = mysql_num_rows($res2);
+    
 
 
 ?>
@@ -22,18 +22,17 @@
     <legend>Digite as informações da venda:</legend>
     <fieldset>
 
-
+    <label for="qtd">Produto:</label>
         <select name="id_produto" id="id_produto">
                 <?php
                     $qtd = mysql_num_rows($res2);
                     echo $qtd;
-                    if ($qtd > 0){
-                        while($linha = mysql_fetch_assoc($res2)){
-                            echo '<option value="'.$linha['id_produto'].'"> '.$linha['nome'].' </option>';
-                            
+                    while($linha = mysql_fetch_assoc($res2)){
+                        if($linha['id_fornecedor']==$content['id_fornecedor']) {
+                            echo '<option value="'.$linha['id_fornecedor'].'" selected> '.$linha['nome'].' </option>';
+                        } else {
+                            echo '<option value =" '.$linha['id_fornecedor'].'" >'.$linha['nome'].'</option>';;
                         }
-                    } else {
-                        echo '<option value="Não há fornecedores"> Não há fornecedores</option>';
                     }
                 ?>
         </select>
