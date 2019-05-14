@@ -12,6 +12,8 @@
 
     (isset($_REQUEST['acao']) and !empty($_REQUEST['acao'])) ? $acao = $_REQUEST['acao'] : $erro = true;
 
+    (isset($_POST['id_v']) and !empty($_POST['id_v'])) ? $id_v = $_POST['id_v'] : $erro = true;
+
     switch ($acao) {
         case 'insert':
             echo 'inserir registro';
@@ -34,7 +36,14 @@
         
         break;
         case 'update':
-            echo 'update';
+        $query = 'UPDATE venda_itens SET id_produto = "'.$id_produto.'", qtd = "'.$qtd.'", valor = "'.$valor.'" WHERE id_venda_itens = '.$id_v;
+
+        echo $query;
+        mysql_query($query, $link) or die(mysql_error());
+        mysql_close();
+        header("Location: index.php?pg=vendas&msg=true&action=update&action=update");
+        exit;  
+       
         break;
         case 'delete':
             echo 'delete';
@@ -45,7 +54,7 @@
             
             mysql_query($query, $link) or die(mysql_error());
             mysql_close();
-            header("Location: index.php?pg=vendas&msg=true");
+            header("Location: index.php?pg=vendas&msg=true&action=delete");            
             exit; 
         break;
         

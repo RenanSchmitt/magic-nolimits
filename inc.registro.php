@@ -1,5 +1,6 @@
 <?php
     
+    require_once('inc.connect.php');
     if(isset($_GET['msg']) == true){
         echo "<script type=\"text/javascript\">alert('Cliente cadastrado!');</script>";
     }

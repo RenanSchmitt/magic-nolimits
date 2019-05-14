@@ -1,7 +1,11 @@
 <?php
     require_once('inc.connect.php');
-    if(isset($_GET['msg']) == true){
-        echo "<script type=\"text/javascript\">alert('Venda excluida com sucesso!');</script>";
+    if(isset($_GET['msg']) == true && $_GET['action'] == 'delete'){
+        echo "<script type=\"text/javascript\">alert('Venda excluido com sucesso!');</script>";
+    }
+
+    if(isset($_GET['msg']) == true && $_GET['action'] == 'update'){
+        echo "<script type=\"text/javascript\">alert('Venda alterado com sucesso!');</script>";
     }
 ?>
 <h2>Página ainda em desenvolvimento!</h2>
@@ -41,7 +45,7 @@
                 echo '<td>'.$linha['id_venda'].'</td>';
 
                 echo '<td>
-                    <a href="#">Editar</a>
+                    <a href="index.php?pg=atualizavenda&id_v='.$linha['id_venda_itens'].'    ">Editar</a>                                        
                     <a href="acao_cadastrovenda.php?acao=delete&id_venda_itens='.$linha['id_venda_itens'].'">Excluir</a>
                     </td>';
                 echo '</tr>';
