@@ -1,9 +1,13 @@
 
 <?php
-    require_once('inc.connect.php');
-    if(isset($_GET['msg']) == true){
-        echo "<script type=\"text/javascript\">alert('Cliente excluido com sucesso!');</script>";
-    }
+      require_once('inc.connect.php');
+      if(isset($_GET['msg']) == true && $_GET['action'] == 'delete'){
+          echo "<script type=\"text/javascript\">alert('Cliente excluido com sucesso!');</script>";
+      }
+  
+      if(isset($_GET['msg']) == true && $_GET['action'] == 'update'){
+          echo "<script type=\"text/javascript\">alert('Cliente alterado com sucesso!');</script>";
+      }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +42,7 @@
                 echo '<td>'.$linha['senha'].'</td>';
 
                 echo '<td>
-                    <a href="#">Editar</a>
+                    <a href="index.php?pg=atualizacliente&id_cli='.$linha['id'].'    ">Editar</a>
                     <a href="acao_registro.php?acao=delete&id='.$linha['id'].'">Excluir</a>
                     </td>';
                 echo '</tr>';

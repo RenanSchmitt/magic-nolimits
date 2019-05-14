@@ -1,7 +1,11 @@
 <?php
     require_once('inc.connect.php');
-    if(isset($_GET['msg']) == true){
+    if(isset($_GET['msg']) == true && $_GET['action'] == 'delete'){
         echo "<script type=\"text/javascript\">alert('Filial excluido com sucesso!');</script>";
+    }
+
+    if(isset($_GET['msg']) == true && $_GET['action'] == 'update'){
+        echo "<script type=\"text/javascript\">alert('Filial alterado com sucesso!');</script>";
     }
 ?>
 
@@ -36,7 +40,7 @@
                 echo '<td>'.$linha['ende'].'</td>';
 
                 echo '<td>
-                    <a href="#">Editar</a>
+                    <a href="index.php?pg=atualizafilial&id_fil='.$linha['id_filial'].'    ">Editar</a>                    
                     <a href="acao_cadastrofilial.php?acao=delete&id_filial='.$linha['id_filial'].'">Excluir</a>
 
                     </td>';

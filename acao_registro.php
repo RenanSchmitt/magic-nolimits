@@ -10,6 +10,9 @@
 
     (isset($_REQUEST['acao']) and !empty($_REQUEST['acao'])) ? $acao = $_REQUEST['acao'] : $erro = true;
 
+    (isset($_POST['id_cli']) and !empty($_POST['id_cli'])) ? $id_cli = $_POST['id_cli'] : $erro = true;
+    
+
     switch ($acao) {
         case 'insert':
             echo 'inserir registro';
@@ -27,8 +30,16 @@
                 header("Location: index.php?pg=registro&msg=true");
                 exit; 
             case 'update':
-                echo 'update';
-                break;
+            echo 'update';
+
+            $query = 'UPDATE cliente SET nome = "'.$nome.'", email = "'.$email.'", senha = "'.$senha.'" WHERE id = '.$id_cli;
+
+            echo $query;
+            mysql_query($query, $link) or die(mysql_error());
+            mysql_close();
+            header("Location: index.php?pg=clientes&msg=true&action=update");
+            exit; 
+                
             case 'delete':
                 echo 'delete';
                 echo 'delete';
@@ -39,7 +50,7 @@
                 
                 mysql_query($query, $link) or die(mysql_error());
                 mysql_close();
-                header("Location: index.php?pg=clientes&msg=true");
+                header("Location: index.php?pg=clientes&msg=true&action=delete");
                 exit;
                 break;
 
