@@ -9,20 +9,20 @@
     }
 
 ?>
-<h2>Página ainda em desenvolvimento!</h2>
+<h2>Produtos cadastrados:</h2>
 <!-- <img src="./images/construcao.png" width="500" height="500"> -->
 <!DOCTYPE html>
 <html lang="en">
 
 <body>
-<table border="1" style="width: 80%; margin-left: 10%">
-    <tr>
-        <td> ID </td>
-        <td> NOME </td>
-        <td> VALOR </td>
-        <td> FILIAL </td>
-        <td> FORNECEDOR </td>
-        <td> ACÃO </td>
+<table class="table" >
+    <tr >
+        <th> ID </th>
+        <th> NOME </th>
+        <th> VALOR </th>
+        <th> FILIAL </th>
+        <th> FORNECEDOR </th>
+        <th> ACÃO </th>
     <tr>
     
     <?php

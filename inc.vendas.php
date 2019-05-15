@@ -9,20 +9,19 @@
     }
     
 ?>
-<h2>Página ainda em desenvolvimento!</h2>
-<!-- <img src="./images/construcao.png" width="500" height="500"> -->
+
 <!DOCTYPE html>
 <html lang="en">
-
+<h2>Vendas cadastradas:</h2>
 <body>
-<table border="1" style="width: 80%; margin-left: 10%">
+<table class="table">
     <tr>
-        <td> ID </td>
-        <td> Produto ID </td>
-        <td> QUANTIDADE </td>
-        <td> VALOR </td>
-        <td> ID_VENDA </td>
-        <td> ACÃO </td>
+        <th> ID </th>
+        <th> Produto ID </th>
+        <th> QUANTIDADE </th>
+        <th> VALOR </th>
+        <th> ID_VENDA </th>
+        <th> ACÃO </th>
     <tr>
     
     <?php

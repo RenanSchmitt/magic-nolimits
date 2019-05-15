@@ -27,8 +27,9 @@
             <label for="valor">Valor:</label>
             <input name="valor" id="valor" type="text" />
         </p>
+        
         <label for="nome">Fornecedor: </label>
-        <select name="fornecedor" id="fornecedor">
+        <select  name="fornecedor" id="fornecedor">
                 <?php
                     $qtd = mysql_num_rows($res);
                     echo $qtd;
@@ -42,6 +43,7 @@
                     }
                 ?>
         </select>
+        <br>
         
         <label for="nome">Filial: </label>
         <select name="filial" id="filial">

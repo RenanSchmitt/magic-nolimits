@@ -13,12 +13,14 @@
 <html lang="en">
 
 <body>
-<table border="1" style="width: 80%; margin-left: 10%">
+<h2>Filiais cadastradas:</h2>
+
+<table class="table">
     <tr>
-        <td> ID </td>
-        <td> NOME </td>
-        <td> ENDERECO </td>
-        <td> ACÃO </td>
+        <th> ID </th>
+        <th> NOME </th>
+        <th> ENDERECO </th>
+        <th> ACÃO </th>
     <tr>
     
     <?php
