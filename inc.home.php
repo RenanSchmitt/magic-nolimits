@@ -74,7 +74,7 @@
                             <div class="content">
                                 <h4> Filiais. </h4>
                                 <p>Saiba onde nos enconttrar.</p>
-                                <p><a href="index.php?pg=filiais">Clique aqui</a></p>
+                                <p><a href="index.php?pg=filial">Clique aqui</a></p>
                             </div>
                         </div>
                     </div>
