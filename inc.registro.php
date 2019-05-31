@@ -6,7 +6,7 @@
     }
 ?>
 
-<form id="registro" action="acao_registro.php" method="post">
+<form id="registro" action="acao_registro.php" method="post" enctype="multipart/form-data">
     <legend>Digite suas informações:</legend>
     <fieldset>
         <p>
@@ -22,7 +22,12 @@
         <p>
             <label for="senha">Senha:</label>
             <input name="senha" id="password" type="password" />
-        </p> -->
+        </p>
+        
+        <p> 
+            <label for="file">Foto de Perfil:</label>
+            <input style="margin-left: 38%" type="file" id="file" name="arquivo">
+        </p>
 
         <input type="hidden" name="acao" value="insert">
 

@@ -19,16 +19,29 @@
         case 'insert':
             echo 'inserir registro';
             
+                        
+            $nome_image = $_FILES['arquivo']['name'];
+            $tmp_nome = $_FILES['arquivo']['tmp_name']; 
+            $dir = 'arquivo/img/prod/';
+            if($nome_image == null){
+                $nome_image = "prod-default.gif";
+            }
+            move_uploaded_file($tmp_nome, $dir.$nome_image);
+            
+
             $query = 'INSERT INTO produto (
                 nome,
                 valor,
                 id_fornecedor,
-                id_filial)
+                id_filial,
+                img)
 
                 VALUES("'.$nome.'",
                 "'.$valor.'",
                 "'.$fornecedor.'",
-                "'.$filial.'")';
+                "'.$filial.'",
+                "'.$nome_image.'"
+                )';
 
             echo $query;
             mysql_query($query, $link) or die(mysql_error());
@@ -53,10 +66,16 @@
         case 'delete':
             echo 'delete';
             (isset($_GET['id_produto']) and !empty($_GET['id_produto'])) ? $id_contato = $_GET['id_produto'] : $erro = true;
-
+            
+            $query = 'SELECT img FROM produto WHERE id_produto='.$id_contato;
+    
+            $res = mysql_query($query, $link) or die(mysql_error());
+            $content = mysql_fetch_assoc($res);
+            $image = $content['img'];
+            $del = "./arquivo/img/prod/$image";
+            unlink($del);
             $query = 'DELETE FROM produto 
             WHERE id_produto = '.$id_contato;  
-            
             mysql_query($query, $link) or die(mysql_error());
             mysql_close();
             header("Location: index.php?pg=produtos&msg=true&action=delete");

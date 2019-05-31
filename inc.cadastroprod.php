@@ -15,7 +15,7 @@
     
 ?>
 
-<form id="registro" action="acao_cadastroprod.php" method="post">
+<form id="registro" action="acao_cadastroprod.php" method="post" enctype="multipart/form-data">
     <legend>Digite as informações do produto:</legend>
     <fieldset>
         <p>
@@ -60,6 +60,11 @@
                     }
                 ?>
         </select>
+
+        <p> 
+            <label for="file">Foto de Perfil:</label>
+            <input style="margin-left: 38%" type="file" id="file" name="arquivo">
+        </p>
 
         <input type="hidden" name="acao" value="insert">
 

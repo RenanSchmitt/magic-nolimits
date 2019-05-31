@@ -7,7 +7,7 @@
     (isset($_REQUEST['id_prod']) and !empty($_REQUEST['id_prod'])) ? $id_prod = $_REQUEST['id_prod'] : $erro = true;
     
     require_once('inc.connect.php');
-    $query = 'SELECT id_produto, nome, valor, id_filial, id_fornecedor FROM produto WHERE id_produto='.$id_prod;
+    $query = 'SELECT id_produto, nome, valor, id_filial, id_fornecedor, img FROM produto WHERE id_produto='.$id_prod;
     
     $res = mysql_query($query, $link) or die(mysql_error());
     $content = mysql_fetch_assoc($res);

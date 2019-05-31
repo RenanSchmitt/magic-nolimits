@@ -21,11 +21,12 @@
         <th> NOME </th>
         <th> EMAIL </th>
         <th> SENHA </th>
+        <th> FOTO </th>
         <th> ACOES </th>
     <tr>
     
     <?php
-        $query = 'SELECT id, nome, email, senha
+        $query = 'SELECT id, nome, email, senha, img
         FROM cliente
         ORDER BY nome';
         
@@ -42,7 +43,7 @@
                 echo '<td>'.$linha['nome'].'</td>';
                 echo '<td>'.$linha['email'].'</td>';
                 echo '<td>'.$linha['senha'].'</td>';
-
+                echo '<td> <img src="./arquivo/img/clientes/'.$linha['img'].'" width="160px" height="160px"> </td>'; 
                 echo '<td>
                     <a href="index.php?pg=atualizacliente&id_cli='.$linha['id'].'    ">Editar</a>
                     <a href="acao_registro.php?acao=delete&id='.$linha['id'].'">Excluir</a>

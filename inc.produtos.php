@@ -22,19 +22,18 @@
         <th> VALOR </th>
         <th> FILIAL </th>
         <th> FORNECEDOR </th>
+        <th> FOTO </th>
         <th> ACÃO </th>
     <tr>
     
     <?php
-        $query = 'SELECT id_produto, nome, valor, id_filial, id_fornecedor
+        $query = 'SELECT id_produto, nome, valor, id_filial, id_fornecedor, img
         FROM produto
         ORDER BY nome';
         
         $res = mysql_query($query, $link);
 
         $qtd = mysql_num_rows($res);
-
-       
 
         if( $qtd > 0 ){
             while($linha = mysql_fetch_assoc($res)){
@@ -44,10 +43,10 @@
                 echo '<td>'.$linha['valor'].'</td>';
                 echo '<td>'.$linha['id_filial'].'</td>';
                 echo '<td>'.$linha['id_fornecedor'].'</td>';
-
+                echo '<td> <img src="./arquivo/img/prod/'.$linha['img'].'" width="160px" height="160px"> </td>'; 
                 echo '<td>
-                     <a href="index.php?pg=atualizaproduto&id_prod='.$linha['id_produto'].'    ">Editar</a>
-                    <a href="acao_cadastroprod.php?acao=delete&id_produto='.$linha['id_produto'].'">Excluir</a>
+                    <a href="index.php?pg=atualizaproduto&id_prod='.$linha['id_produto'].'    ">Editar</a>
+                    <a href="acao_cadastroprod.php?acao=delete&id_produto='.$linha['id_produto'].'&image='.$linha['img'].'">Excluir</a>
                     </td>';
                 echo '</tr>';
             }
