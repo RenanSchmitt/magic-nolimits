@@ -2,7 +2,9 @@
    
     (isset($_REQUEST['id_cli']) and !empty($_REQUEST['id_cli'])) ? $id_cli = $_REQUEST['id_cli'] : $erro = true;
     
+    require_once('inc.isAuth.php');
     require_once('inc.connect.php');
+    
 
     $query = 'SELECT id, nome, email, senha
     FROM cliente WHERE id='.$id_cli;
@@ -13,7 +15,7 @@
 
 ?>
 
-<form id="registro" action="acao_registro.php" method="post">
+<form id="registro" action="acao_registro.php" method="post" enctype="multipart/form-data">
     <legend>Digite as informações do fornecedor:</legend>
     <fieldset>
         <p>
@@ -36,11 +38,18 @@
                 echo '<input name="senha" id="senha" type="text" value="'.$content['senha'].'"/>';
             ?>
         </p>
+
+        <p> 
+            <!-- <label for="file">Foto de Perfil:</label> -->
+            <!-- <input style="margin-left: 38%" type="file" id="file" name="arquivo"> -->
+        </p>
      
         <input type="hidden" name="acao" value="update">
+
         
         <?php
-            echo '<input type="hidden" name="id_cli" value="'.$id_cli.'">'
+            echo '<input type="hidden" name="id_cli" value="'.$id_cli.'">';
+            echo '<input type="hidden" name="id" value="'.$id_cli.'">';
         ?>
 
     </fieldset>

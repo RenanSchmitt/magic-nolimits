@@ -1,4 +1,5 @@
 <?php
+    require_once('inc.isAuth.php');
     require_once('inc.connect.php');
     if(isset($_GET['msg']) == true && $_GET['action'] == 'delete'){
         echo "<script type=\"text/javascript\">alert('Venda excluido com sucesso!');</script>";

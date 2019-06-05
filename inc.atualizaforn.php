@@ -6,7 +6,9 @@
     
     (isset($_REQUEST['id_forn']) and !empty($_REQUEST['id_forn'])) ? $id_forn = $_REQUEST['id_forn'] : $erro = true;
     
+    require_once('inc.isAuth.php');
     require_once('inc.connect.php');
+
 
     $query = 'SELECT id_fornecedor, nome, ende
     FROM fornecedor WHERE id_fornecedor='.$id_forn;

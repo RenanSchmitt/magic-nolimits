@@ -38,11 +38,28 @@
             case 'update':
             echo 'update';
 
-            $query = 'UPDATE cliente SET nome = "'.$nome.'", email = "'.$email.'", senha = "'.$senha.'" WHERE id = '.$id_cli;
+            $nome_image = $_FILES['arquivo']['name'];
+            $tmp_nome = $_FILES['arquivo']['tmp_name']; 
+            $dir = 'arquivo/img/clientes/';
 
-            echo $query;
-            mysql_query($query, $link) or die(mysql_error());
-            mysql_close();
+            if($nome_image == NULL){
+                $query = 'UPDATE cliente SET nome = "'.$nome.'", email = "'.$email.'", senha = "'.$senha.'" WHERE id = '.$id_cli;
+                mysql_query($query, $link) or die(mysql_error());
+                mysql_close();
+            } else {
+                (isset($_GET['id']) and !empty($_GET['id'])) ? $id = $_GET['id'] : $erro = true;
+                $query = 'SELECT img FROM cliente WHERE id='.$id;
+                $res = mysql_query($query, $link) or die(mysql_error());
+                $content = mysql_fetch_assoc($res);
+                $image = $content['img'];
+                $del = "./arquivo/img/clientes/$image";
+                if($image != "img-default.jpg"){
+                    unlink($del);                   
+                }         
+                $query = 'UPDATE cliente SET nome = "'.$nome.'", email = "'.$email.'", senha = "'.$senha.'", img = "'.$nome_image.'" WHERE id = '.$id_cli;
+                mysql_query($query, $link) or die(mysql_error());
+                mysql_close();
+            }            
             header("Location: index.php?pg=clientes&msg=true&action=update");
             exit; 
                 

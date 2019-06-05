@@ -23,7 +23,11 @@
         <th> FILIAL </th>
         <th> FORNECEDOR </th>
         <th> FOTO </th>
-        <th> ACÃO </th>
+        <?php
+            if(isset($_SESSION) and !empty($_SESSION)){                            
+                echo '<th> ACÃO </th>';
+            }
+        ?>
     <tr>
     
     <?php
@@ -44,10 +48,12 @@
                 echo '<td>'.$linha['id_filial'].'</td>';
                 echo '<td>'.$linha['id_fornecedor'].'</td>';
                 echo '<td> <img src="./arquivo/img/prod/'.$linha['img'].'" width="160px" height="160px"> </td>'; 
-                echo '<td>
-                    <a href="index.php?pg=atualizaproduto&id_prod='.$linha['id_produto'].'    ">Editar</a>
-                    <a href="acao_cadastroprod.php?acao=delete&id_produto='.$linha['id_produto'].'&image='.$linha['img'].'">Excluir</a>
-                    </td>';
+                if(isset($_SESSION) and !empty($_SESSION)){                                            
+                    echo '<td>
+                        <a href="index.php?pg=atualizaproduto&id_prod='.$linha['id_produto'].'    ">Editar</a>
+                        <a href="acao_cadastroprod.php?acao=delete&id_produto='.$linha['id_produto'].'&image='.$linha['img'].'">Excluir</a>
+                        </td>';
+                }
                 echo '</tr>';
             }
         } else {

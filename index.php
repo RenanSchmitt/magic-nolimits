@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,37 +31,31 @@
     </div>
 
     <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-start">
-        <a class="navbar-item" href="index.php?pg=home" >
-            Home
-        </a>
+    <div class="navbar-start">
+        <?php
+            echo '<a class="navbar-item" href="index.php?pg=home" >Home</a>';
 
-        <a class="navbar-item" href="index.php?pg=produtos">
-            Produtos
-        </a>
+            echo '<a class="navbar-item" href="index.php?pg=produtos">Produtos</a>';
 
-        <a class="navbar-item" href="index.php?pg=fornecedores">
-            Fornecedores
-        </a>
-
-        <a class="navbar-item" href="index.php?pg=filial">
-                    Filiais
-        </a>
-
-        <a class="navbar-item" href="index.php?pg=clientes">
-                Clientes
-        </a>
-
-        <a class="navbar-item" href="index.php?pg=vendas">
-                Vendas
-        </a>
-
-
+            if(isset($_SESSION) and !empty($_SESSION)){
+                echo '<a class="navbar-item" href="index.php?pg=fornecedores">Fornecedores</a>';
+            }
+            
+            echo '<a class="navbar-item" href="index.php?pg=filial">Filiais</a>';
+            
+            if(isset($_SESSION) and !empty($_SESSION)){
+                echo '<a class="navbar-item" href="index.php?pg=clientes">Clientes</a>';
+            }
+            if(isset($_SESSION) and !empty($_SESSION)){
+                echo '<a class="navbar-item" href="index.php?pg=vendas">Vendas</a>';
+            }
+        ?>
         <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
-            More
-            </a>
-
+            <?php 
+                if(isset($_SESSION) and !empty($_SESSION)){            
+                    echo '<a class="navbar-link">More</a>';
+                }
+            ?>
             <div class="navbar-dropdown">
 
                 <a class="navbar-item" href="index.php?pg=cadastroprod">
@@ -87,9 +84,13 @@
             <a class="button is-primary" href="index.php?pg=registro">
                 <strong>Sign up</strong>
             </a>
-            <a class="button is-light">
-                Log in
-            </a>
+            <?php
+                if(isset($_SESSION) and empty($_SESSION)){                            
+                    echo '<a class="button is-light" href="index.php?pg=login">Login</a>';
+                } else {
+                     echo'<a class="button is-light" href="index.php?pg=logoff">Logoff</a>';
+                }
+            ?>
             </div>
         </div>
         </div>

@@ -2,7 +2,7 @@
     
     
     (isset($_REQUEST['id_v']) and !empty($_REQUEST['id_v'])) ? $id_v = $_REQUEST['id_v'] : $erro = true;
-    
+    require_once('inc.isAuth.php');    
     require_once('inc.connect.php');
     $query = 'SELECT id_venda_itens, id_produto, qtd, valor FROM venda_itens WHERE id_venda_itens='.$id_v;
     

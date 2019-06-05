@@ -1,4 +1,5 @@
 <?PHP
+    require_once('inc.isAuth.php');
     if(isset($_GET['msg']) == true){
         echo "<script type=\"text/javascript\">alert('Filial cadastrado!');</script>";
     }

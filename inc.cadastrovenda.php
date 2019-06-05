@@ -1,10 +1,10 @@
 <?php
     
+    require_once('inc.isAuth.php');
+    require_once('inc.connect.php');
     if(isset($_GET['msg']) == true){
         echo "<script type=\"text/javascript\">alert('Venda cadastrada!');</script>";
     }
-    
-    require_once('inc.connect.php');
     $query = 'SELECT id_produto, nome , valor 
     FROM produto';
     $res = mysql_query($query, $link) or die(mysql_error());

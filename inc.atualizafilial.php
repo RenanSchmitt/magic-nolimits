@@ -2,7 +2,9 @@
    
     (isset($_REQUEST['id_fil']) and !empty($_REQUEST['id_fil'])) ? $id_fil = $_REQUEST['id_fil'] : $erro = true;
     
+    require_once('inc.isAuth.php');
     require_once('inc.connect.php');
+
 
     $query = 'SELECT id_filial, nome, ende
     FROM filial WHERE id_filial='.$id_fil;

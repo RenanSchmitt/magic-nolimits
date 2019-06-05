@@ -6,7 +6,9 @@
     
     (isset($_REQUEST['id_prod']) and !empty($_REQUEST['id_prod'])) ? $id_prod = $_REQUEST['id_prod'] : $erro = true;
     
+    require_once('inc.isAuth.php');
     require_once('inc.connect.php');
+
     $query = 'SELECT id_produto, nome, valor, id_filial, id_fornecedor, img FROM produto WHERE id_produto='.$id_prod;
     
     $res = mysql_query($query, $link) or die(mysql_error());
@@ -47,7 +49,7 @@
                             if($linha['id_fornecedor']==$content['id_fornecedor']) {
                                 echo '<option value="'.$linha['id_fornecedor'].'" selected> '.$linha['nome'].' </option>';
                             } else {
-                                echo '<option value =" '.$linha['id_fornecedor'].'" >'.$linha['nome'].'</option>';;
+                                echo '<option value =" '.$linha['id_fornecedor'].'" >'.$linha['nome'].'</option>';
                             }
                         }
                         

@@ -1,10 +1,10 @@
 <?php
-    
+    require_once('inc.isAuth.php');
+    require_once('inc.connect.php');
     if(isset($_GET['msg']) == true){
         echo "<script type=\"text/javascript\">alert('Produto cadastrado!');</script>";
     }
     
-    require_once('inc.connect.php');
     $query = 'SELECT id_fornecedor, nome
     FROM fornecedor';
     $res = mysql_query($query, $link) or die(mysql_error());

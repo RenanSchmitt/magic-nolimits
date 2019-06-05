@@ -1,6 +1,12 @@
-<h1>
+<?php
+if(isset($_GET['login']) == true){
+    echo "<script type=\"text/javascript\">alert('SUCESS: Logado com sucesso!');</script>";
+}
+if(isset($_GET['msg']) == true and isset($_GET['logoff']) == true){
+    echo "<script type=\"text/javascript\">alert('Sessão finalizada!');</script>";
+}
 
-</h1>
+?>
 
 <img src="./images/carossel1.jpg" width="60%" height="400">
 <!DOCTYPE html>
