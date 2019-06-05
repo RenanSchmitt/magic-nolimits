@@ -20,7 +20,11 @@
         <th> ID </th>
         <th> NOME </th>
         <th> ENDERECO </th>
-        <th> ACÃO </th>
+        <?php
+            if(isset($_SESSION) and !empty($_SESSION)){                            
+                echo '<th> ACÃO </th>';
+            }
+        ?>
     <tr>
     
     <?php
@@ -41,11 +45,13 @@
                 echo '<td>'.$linha['nome'].'</td>';
                 echo '<td>'.$linha['ende'].'</td>';
 
-                echo '<td>
-                    <a href="index.php?pg=atualizafilial&id_fil='.$linha['id_filial'].'    ">Editar</a>                    
-                    <a href="acao_cadastrofilial.php?acao=delete&id_filial='.$linha['id_filial'].'">Excluir</a>
+                if(isset($_SESSION) and !empty($_SESSION)){
+                    echo '<td>
+                        <a href="index.php?pg=atualizafilial&id_fil='.$linha['id_filial'].'    ">Editar</a>                    
+                        <a href="acao_cadastrofilial.php?acao=delete&id_filial='.$linha['id_filial'].'">Excluir</a>
 
-                    </td>';
+                        </td>';
+                }
                 echo '</tr>';
             }
         } else {
