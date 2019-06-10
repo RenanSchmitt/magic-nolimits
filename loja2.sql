@@ -2,10 +2,10 @@
 -- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: 04-Jun-2019 às 23:15
+-- Host: 127.0.0.1
+-- Generation Time: 10-Jun-2019 às 12:51
 -- Versão do servidor: 10.1.37-MariaDB
--- versão do PHP: 5.6.40
+-- versão do PHP: 5.6.39
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -41,9 +41,12 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id`, `nome`, `email`, `senha`, `img`) VALUES
-(37, 'semfoto', 'semfoto@gmail.com', '213', 'img-default.jpg'),
-(40, 'COMFOTO', '21312321', '312312', '53258-special_effects-public_event-darkness-concert-pink_floyd-1280x800.jpg'),
-(42, 'semfotinhoo', '111', '11111', 'img-default.jpg');
+(55, 'Renan', 'renan@gmail.com', '123', 'renan.png'),
+(56, 'Jace', 'jace@magic.com', '12345', 'Jace.jpg'),
+(57, 'Liliana', 'liliana@magic.com', '123456', 'liliana.jpg'),
+(58, 'Nicol Bolas', 'nicolbolas@magic.com', '123456789', 'nicolbolas.jpg'),
+(59, 'Chandra', 'chandra@magic.com', '15123', 'chandra.jpg'),
+(60, 'Unknow', 'unknow@magic.com', '123', 'img-default.jpg');
 
 -- --------------------------------------------------------
 
@@ -83,8 +86,7 @@ CREATE TABLE `fornecedor` (
 
 INSERT INTO `fornecedor` (`id_fornecedor`, `nome`, `ende`) VALUES
 (19, 'Wizardss', '23 de Outubro, 234'),
-(21, 'diferente', '11'),
-(22, 'RUA DA PRAIA', '123');
+(22, 'RedBurn MTG', 'Av. Assis Brasil, 123');
 
 -- --------------------------------------------------------
 
@@ -106,8 +108,19 @@ CREATE TABLE `produto` (
 --
 
 INSERT INTO `produto` (`id_produto`, `nome`, `valor`, `id_filial`, `id_fornecedor`, `img`) VALUES
-(35, 'DADOS D20', 5, 24, 19, 'prod-default.gif'),
-(37, 'semfotoss1', 11, 24, 19, 'prod-default.gif');
+(43, 'Bundle Master25', 500, 24, 19, 'bundlemaster25.png'),
+(44, 'Bundle War of Spark', 300, 24, 19, 'bundlewarofspark.jpg'),
+(45, 'Bundle Guilds of Ravinica', 250, 24, 19, 'bundleguildofravinica.png'),
+(46, 'Commander 2018 (Qualquer Deck)', 180, 25, 19, 'commander2018.jpg'),
+(47, 'Marcado Dado D20', 5.5, 25, 22, 'dadod20.jpg'),
+(48, 'Booster Wark of Spark', 15, 25, 19, 'boosterwarofspark.jpg'),
+(49, 'Booster Guild of Ravinica', 12, 24, 19, 'boosterguildsofravinica.jpg'),
+(50, 'Dragon Shield Black', 80, 25, 22, 'dragonshieldpreto.png'),
+(51, 'Dragon Shield Petrol', 80, 24, 22, 'dragonshieldpetrol.jpg'),
+(52, 'Dragon Shield Purple', 80, 24, 22, 'dragonshieldpurlple.jpg'),
+(53, 'Deck Box Ultra PRO Branca', 50, 24, 22, 'deckbox.png'),
+(54, 'Deck Box Ultra PRO Rosa', 50, 24, 22, 'deckboxrosa.jpg'),
+(55, 'Marcador de Vida Digital', 120, 25, 22, 'prod-default.gif');
 
 -- --------------------------------------------------------
 
@@ -140,10 +153,9 @@ CREATE TABLE `venda_itens` (
 --
 
 INSERT INTO `venda_itens` (`id_venda`, `id_produto`, `qtd`, `valor`, `id_venda_itens`) VALUES
-(0, 31, 12, 120, 1),
-(0, 0, 333, 333222, 2),
-(0, 31, 22, 22, 3),
-(0, 31, 3, 30, 4);
+(0, 43, 2, 1000, 5),
+(0, 55, 2, 240, 6),
+(0, 50, 1, 80, 7);
 
 --
 -- Indexes for dumped tables
@@ -193,25 +205,25 @@ ALTER TABLE `venda_itens`
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `filial`
 --
 ALTER TABLE `filial`
-  MODIFY `id_filial` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_filial` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `fornecedor`
 --
 ALTER TABLE `fornecedor`
-  MODIFY `id_fornecedor` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_fornecedor` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `id_produto` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_produto` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `vendas`
@@ -223,7 +235,7 @@ ALTER TABLE `vendas`
 -- AUTO_INCREMENT for table `venda_itens`
 --
 ALTER TABLE `venda_itens`
-  MODIFY `id_venda_itens` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_venda_itens` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
