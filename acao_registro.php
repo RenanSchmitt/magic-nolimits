@@ -43,7 +43,6 @@
             $dir = 'arquivo/img/clientes/';
 
             if($nome_image == NULL){
-                
                 $query = 'UPDATE cliente SET nome = "'.$nome.'", email = "'.$email.'", senha = "'.$senha.'" WHERE id = '.$id_cli;
                 mysql_query($query, $link) or die(mysql_error());
                 mysql_close();
@@ -57,10 +56,14 @@
                     unlink($del);
                     $dir = 'arquivo/img/clientes/';
                     move_uploaded_file($tmp_nome, $dir.$nome_image);
-                }         
+                } 
+                $dir = 'arquivo/img/clientes/';
+                move_uploaded_file($tmp_nome, $dir.$nome_image);        
                 $query = 'UPDATE cliente SET nome = "'.$nome.'", email = "'.$email.'", senha = "'.$senha.'", img = "'.$nome_image.'" WHERE id = '.$id_cli;
                 mysql_query($query, $link) or die(mysql_error());
                 mysql_close();
+                header("Location: index.php?pg=clientes&msg=true&action=update");
+                exit; 
             }            
             header("Location: index.php?pg=clientes&msg=true&action=update");
             exit; 
