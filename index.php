@@ -17,10 +17,10 @@ session_start();
 </head>
 <body style="text-align: center;">
     
-    <nav class="navbar is-warning" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="index.php?pg=home">
-        <img src="./images/logo.png" width="112" height="28">
+        <img src="./images/logo.png" width="112" height="50">
         </a>
 
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -48,6 +48,10 @@ session_start();
             }
             if(isset($_SESSION) and !empty($_SESSION)){
                 echo '<a class="navbar-item" href="index.php?pg=vendas">Vendas</a>';
+            }
+
+            if(isset($_SESSION) and empty($_SESSION)){
+                echo '<a class="navbar-item" href="index.php?pg=cadastrovenda">Carrinho</a>';
             }
         ?>
         <div class="navbar-item has-dropdown is-hoverable">
