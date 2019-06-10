@@ -40,8 +40,8 @@
         </p>
 
         <p> 
-            <!-- <label for="file">Foto de Perfil:</label> -->
-            <!-- <input style="margin-left: 38%" type="file" id="file" name="arquivo"> -->
+            <label for="file">Foto de Perfil:</label>
+            <input style="margin-left: 38%" type="file" id="file" name="arquivo">
         </p>
      
         <input type="hidden" name="acao" value="update">
