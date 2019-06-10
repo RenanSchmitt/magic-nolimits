@@ -79,7 +79,9 @@
                 $content = mysql_fetch_assoc($res);
                 $image = $content['img'];
                 $del = "./arquivo/img/clientes/$image";
-                unlink($del);
+                if($image != "img-default.jpg"){
+                    unlink($del);
+                }
                 $query = 'DELETE FROM cliente 
                 WHERE id = '.$id;  
                 

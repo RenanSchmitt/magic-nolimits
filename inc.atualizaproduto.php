@@ -25,7 +25,7 @@
 
 ?>
 
-<form id="registro" action="acao_cadastroprod.php" method="post">
+<form id="registro" action="acao_cadastroprod.php" method="post" enctype="multipart/form-data">
     <legend>Digite as informações do produto:</legend>
     <fieldset>
         <p>
@@ -73,10 +73,17 @@
                 ?>
         </select>
 
+        <p> 
+            <label for="file">Foto do Produto:</label>
+            <input style="margin-left: 38%" type="file" id="file" name="arquivo">
+        </p>
+
         <input type="hidden" name="acao" value="update">
         
         <?php
-            echo '<input type="hidden" name="id_prod" value="'.$id_prod.'">'
+            echo '<input type="hidden" name="id_prod" value="'.$id_prod.'">';
+            echo '<input type="hidden" name="id" value="'.$id_prod.'">';
+
         ?>
 
     </fieldset>

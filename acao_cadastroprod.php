@@ -52,16 +52,36 @@
         
         break;
         case 'update':
-            
-            $query = 'UPDATE produto SET nome = "'.$nome.'", valor = "'.$valor.'", id_fornecedor = "'.$fornecedor.'", id_filial = "'.$filial.'" WHERE id_produto = '.$id_prod;
 
-            echo $query;
-            mysql_query($query, $link) or die(mysql_error());
-            mysql_close();
+            $nome_image = $_FILES['arquivo']['name'];
+            $tmp_nome = $_FILES['arquivo']['tmp_name']; 
+            $dir = 'arquivo/img/prod/';
+
+            if($nome_image == NULL){
+                $query = 'UPDATE produto SET nome = "'.$nome.'", valor = "'.$valor.'", id_fornecedor = "'.$fornecedor.'", id_filial = "'.$filial.'" WHERE id_produto = '.$id_prod;
+                mysql_query($query, $link) or die(mysql_error());
+                mysql_close();
+            } else {
+                $query = 'SELECT img FROM produto WHERE id_produto='.$id_prod;
+                $res = mysql_query($query, $link) or die(mysql_error());
+                $content = mysql_fetch_assoc($res);
+                $image = $content['img'];
+                $del = "./arquivo/img/prod/$image";
+                if($image != "prod-default.gif"){
+                    unlink($del);
+                    $dir = 'arquivo/img/prod/';
+                    move_uploaded_file($tmp_nome, $dir.$nome_image);
+                } 
+                $dir = 'arquivo/img/prod/';
+                move_uploaded_file($tmp_nome, $dir.$nome_image);
+                $query = 'UPDATE produto SET nome = "'.$nome.'", valor = "'.$valor.'", id_fornecedor = "'.$fornecedor.'", id_filial = "'.$filial.'", img = "'.$nome_image.'" WHERE id_produto = '.$id_prod;
+                mysql_query($query, $link) or die(mysql_error());
+                mysql_close();
+                header("Location: index.php?pg=produtos&msg=true&action=update");                
+                exit; 
+            }
             header("Location: index.php?pg=produtos&msg=true&action=update");
-            exit;  
-           
-            
+            exit; 
         break;
         case 'delete':
             echo 'delete';
@@ -73,7 +93,9 @@
             $content = mysql_fetch_assoc($res);
             $image = $content['img'];
             $del = "./arquivo/img/prod/$image";
-            unlink($del);
+            if($image != "prod-default.gif"){
+                unlink($del);
+            }
             $query = 'DELETE FROM produto 
             WHERE id_produto = '.$id_contato;  
             mysql_query($query, $link) or die(mysql_error());
