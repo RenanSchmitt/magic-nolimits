@@ -65,8 +65,7 @@ if(isset($_GET['msg']) == true and isset($_GET['logoff']) == true){
                         <div class="card-content">
                             <div class="content">
                                 <h4>Lista de fornecedores.</h4>
-                                <p>Saiba quem são nossos fornecedores!</p>
-                                <p><a href="index.php?pg=fornecedores">Clique aqui</a></p>
+                                <p>Só trabalhamos com os melhores fornecedores do mercado!</p>
                             </div>
                         </div>
                     </div>

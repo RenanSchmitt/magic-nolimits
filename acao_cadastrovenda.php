@@ -1,14 +1,14 @@
 <?php
     require_once('inc.connect.php');
-    print_r($_POST);
+    require_once('inc.funcao.php');    
 
-    (isset($_POST['id_produto']) and !empty($_POST['id_produto'])) ? $id_produto = $_POST['id_produto'] : $erro = true;
+    (isset($_POST['id_produto']) and !empty($_POST['id_produto'])) ? $form['id_produto'] = $_POST['id_produto'] : $erro = true;
 
-    (isset($_POST['qtd']) and !empty($_POST['qtd'])) ? $qtd = $_POST['qtd'] : $erro = true;
+    (isset($_POST['qtd']) and !empty($_POST['qtd'])) ? $form['qtd'] = $_POST['qtd'] : $erro = true;
 
-    (isset($_POST['valor']) and !empty($_POST['valor'])) ? $valor = $_POST['valor'] : $erro = true;
+    (isset($_POST['valor']) and !empty($_POST['valor'])) ? $form['valor'] = $_POST['valor'] : $erro = true;
 
-    (isset($_POST['filial']) and !empty($_POST['filial'])) ? $filial = $_POST['filial'] : $erro = true;
+    (isset($_POST['filial']) and !empty($_POST['filial'])) ? $form['filial'] = $_POST['filial'] : $erro = true;
 
     (isset($_REQUEST['acao']) and !empty($_REQUEST['acao'])) ? $acao = $_REQUEST['acao'] : $erro = true;
 
@@ -16,27 +16,13 @@
 
     switch ($acao) {
         case 'insert':
-            echo 'inserir registro';
             
-            $query = 'INSERT INTO venda_itens (
-                id_produto,
-                qtd,
-                valor)
-
-                VALUES("'.$id_produto.'",
-                "'.$qtd.'",
-                "'.$valor.'")';
-
-            
-            mysql_query($query, $link) or die(mysql_error());
-            mysql_close();
+            insertVenda($form, $link);
             header("Location: index.php?pg=cadastrovenda&msg=true");
-            exit;  
-           
-        
+            exit;
         break;
         case 'update':
-        $query = 'UPDATE venda_itens SET id_produto = "'.$id_produto.'", qtd = "'.$qtd.'", valor = "'.$valor.'" WHERE id_venda_itens = '.$id_v;
+        $query = 'UPDATE venda_itens SET id_produto = "'.$form['id_produto'].'", qtd = "'.$form['qtd'].'", valor = "'.$form['valor'].'" WHERE id_venda_itens = '.$id_v;
 
         echo $query;
         mysql_query($query, $link) or die(mysql_error());

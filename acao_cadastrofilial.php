@@ -1,10 +1,10 @@
 <?php
     require_once('inc.connect.php');
-    print_r($_POST);
-
-    (isset($_POST['nome']) and !empty($_POST['nome'])) ? $nome = $_POST['nome'] : $erro = true;
+    require_once('inc.funcao.php');
     
-    (isset($_POST['ende']) and !empty($_POST['ende'])) ? $ende = $_POST['ende'] : $erro = true;
+    (isset($_POST['nome']) and !empty($_POST['nome'])) ? $form['nome'] = $_POST['nome'] : $erro = true;
+    
+    (isset($_POST['ende']) and !empty($_POST['ende'])) ? $form['ende'] = $_POST['ende'] : $erro = true;
 
     (isset($_REQUEST['acao']) and !empty($_REQUEST['acao'])) ? $acao = $_REQUEST['acao'] : $erro = true;
 
@@ -13,24 +13,14 @@
 
     switch ($acao) {
         case 'insert':
-            echo 'inserir registro';
-            
-            $query = 'INSERT INTO filial (
-                nome,
-                ende)
-
-                VALUES("'.$nome.'",
-                "'.$ende.'")';
-                           
-            mysql_query($query, $link) or die(mysql_error());
-            mysql_close();
+            insertFilial($form, $link);
             header("Location: index.php?pg=cadastrofilial&msg=true");
             exit; 
             break;
         case 'update':
             echo 'update';
 
-            $query = 'UPDATE filial SET nome = "'.$nome.'", ende = "'.$ende.'" WHERE id_filial = '.$id_fil;
+            $query = 'UPDATE filial SET nome = "'.$form['nome'].'", ende = "'.$form['ende'].'" WHERE id_filial = '.$id_fil;
 
             echo $query;
             mysql_query($query, $link) or die(mysql_error());
