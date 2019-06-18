@@ -18,12 +18,7 @@
         break;
         case 'update':
             echo 'update';
-
-            $query = 'UPDATE fornecedor SET nome = "'.$form['nome'].'", ende = "'.$form['ende'].'" WHERE id_fornecedor = '.$id_forn;
-
-            echo $query;
-            mysql_query($query, $link) or die(mysql_error());
-            mysql_close();
+            updateItem('fornecedor', $form, $link, $id_forn);
             header("Location: index.php?pg=fornecedores&msg=true&action=update");
             exit;  
 

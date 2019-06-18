@@ -79,4 +79,10 @@ function deleteCliente($table, $id, $link) {
     mysql_close();    
 }
 
+function updateItem($table, $form, $link, $id) {
+    $query = 'UPDATE '.$table.' SET nome = "'.$form['nome'].'", ende = "'.$form['ende'].'" WHERE id_'.$table.' = '.$id;
+    mysql_query($query, $link) or die(mysql_error());
+    mysql_close();
+}
+
 ?>
