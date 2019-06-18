@@ -32,11 +32,7 @@
             echo 'delete';
             (isset($_GET['id_fornecedor']) and !empty($_GET['id_fornecedor'])) ? $id_fornecedor = $_GET['id_fornecedor'] : $erro = true;
 
-            $query = 'DELETE FROM fornecedor 
-            WHERE id_fornecedor = '.$id_fornecedor;  
-            
-            mysql_query($query, $link) or die(mysql_error());
-            mysql_close();
+            deleteItem('fornecedor', $id_fornecedor, $link);
             header("Location: index.php?pg=fornecedores&msg=true&action=delete");
             exit; 
         break;

@@ -22,24 +22,17 @@
             exit;
         break;
         case 'update':
-        $query = 'UPDATE venda_itens SET id_produto = "'.$form['id_produto'].'", qtd = "'.$form['qtd'].'", valor = "'.$form['valor'].'" WHERE id_venda_itens = '.$id_v;
+            $query = 'UPDATE venda_itens SET id_produto = "'.$form['id_produto'].'", qtd = "'.$form['qtd'].'", valor = "'.$form['valor'].'" WHERE id_venda_itens = '.$id_v;
 
-        echo $query;
-        mysql_query($query, $link) or die(mysql_error());
-        mysql_close();
-        header("Location: index.php?pg=vendas&msg=true&action=update&action=update");
-        exit;  
-       
-        break;
-        case 'delete':
-            echo 'delete';
-            (isset($_GET['id_venda_itens']) and !empty($_GET['id_venda_itens'])) ? $id_venda_itens = $_GET['id_venda_itens'] : $erro = true;
-
-            $query = 'DELETE FROM venda_itens 
-            WHERE id_venda_itens = '.$id_venda_itens;  
-            
+            echo $query;
             mysql_query($query, $link) or die(mysql_error());
             mysql_close();
+            header("Location: index.php?pg=vendas&msg=true&action=update&action=update");
+            exit;  
+        break;
+        case 'delete':
+            (isset($_GET['id_venda_itens']) and !empty($_GET['id_venda_itens'])) ? $id_venda_itens = $_GET['id_venda_itens'] : $erro = true;
+            deleteItem('venda_itens', $id_venda_itens, $link);
             header("Location: index.php?pg=vendas&msg=true&action=delete");            
             exit; 
         break;

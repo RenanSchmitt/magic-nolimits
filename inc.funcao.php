@@ -61,4 +61,22 @@ function mostraInformacoes($table, $order, $link){
     return $form;
 }
 
+// DELETE
+
+function deleteItem($table, $id, $link) {
+    $query = 'DELETE FROM '.$table.' 
+    WHERE id_'.$table.' = '.$id;  
+    
+    mysql_query($query, $link) or die(mysql_error());
+    mysql_close();    
+}
+
+function deleteCliente($table, $id, $link) {
+    $query = 'DELETE FROM '.$table.' 
+    WHERE id = '.$id;  
+    
+    mysql_query($query, $link) or die(mysql_error());
+    mysql_close();    
+}
+
 ?>

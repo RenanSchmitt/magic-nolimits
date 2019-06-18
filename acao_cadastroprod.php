@@ -1,5 +1,6 @@
 <?php
     require_once('inc.connect.php');
+    require_once('inc.funcao.php');
    
     (isset($_POST['nome']) and !empty($_POST['nome'])) ? $nome = $_POST['nome'] : $erro = true;
 
@@ -95,10 +96,7 @@
             if($image != "prod-default.gif"){
                 unlink($del);
             }
-            $query = 'DELETE FROM produto 
-            WHERE id_produto = '.$id_contato;  
-            mysql_query($query, $link) or die(mysql_error());
-            mysql_close();
+            deleteItem('produto', $id_contato, $link);
             header("Location: index.php?pg=produtos&msg=true&action=delete");
             exit; 
             

@@ -32,11 +32,7 @@
             echo 'delete';
             (isset($_GET['id_filial']) and !empty($_GET['id_filial'])) ? $id_filial = $_GET['id_filial'] : $erro = true;
 
-            $query = 'DELETE FROM filial 
-            WHERE id_filial = '.$id_filial;  
-            
-            mysql_query($query, $link) or die(mysql_error());
-            mysql_close();
+            deleteItem('filial', $id_filial, $link);
             header("Location: index.php?pg=filial&msg=true&action=delete");
             exit; 
         break;

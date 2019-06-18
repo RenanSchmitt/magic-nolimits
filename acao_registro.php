@@ -74,16 +74,10 @@
                 if($image != "img-default.jpg"){
                     unlink($del);
                 }
-                $query = 'DELETE FROM cliente 
-                WHERE id = '.$id;  
-                
-                mysql_query($query, $link) or die(mysql_error());
+                deleteCliente('cliente', $id, $link);
                 mysql_close();
                 header("Location: index.php?pg=clientes&msg=true&action=delete");
                 exit;
-                break;
-
+        break;
     }
-
-
 ?>
