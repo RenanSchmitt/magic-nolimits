@@ -50,5 +50,15 @@ function insertCliente($form, $link){
         mysql_close();
 }
 
+// SELECT
+
+function mostraInformacoes($table, $order, $link){
+    $query = 'SELECT *
+    FROM '.$table.'
+    ORDER BY '.$order;
+    $form['res'] = mysql_query($query, $link);
+    $form['qtd'] = mysql_num_rows($form['res']);
+    return $form;
+}
 
 ?>

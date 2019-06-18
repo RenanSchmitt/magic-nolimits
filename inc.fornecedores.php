@@ -2,6 +2,8 @@
 <?php
     require_once('inc.isAuth.php');
     require_once('inc.connect.php');
+    require_once('inc.funcao.php');
+
     if(isset($_GET['msg']) == true && $_GET['action'] == 'delete'){
         echo "<script type=\"text/javascript\">alert('Fornecedor excluido com sucesso!');</script>";
     }
@@ -25,18 +27,10 @@
     <tr>
     
     <?php
-        $query = 'SELECT id_fornecedor, nome, ende
-        FROM fornecedor
-        ORDER BY nome';
+        $fornecedores = mostraInformacoes('fornecedor', 'nome', $link);
         
-        $res = mysql_query($query, $link);
-
-        $qtd = mysql_num_rows($res);
-
-       
-
-        if( $qtd > 0 ){
-            while($linha = mysql_fetch_assoc($res)){
+        if( $fornecedores['qtd'] > 0 ){
+            while($linha = mysql_fetch_assoc($fornecedores['res'])){
                 echo '<tr>';
                 echo '<td>'.$linha['id_fornecedor'].'</td>';
                 echo '<td>'.$linha['nome'].'</td>';

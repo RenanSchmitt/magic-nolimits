@@ -1,5 +1,7 @@
 <?php
     require_once('inc.connect.php');
+    require_once('inc.funcao.php');
+
     if(isset($_GET['msg']) == true && $_GET['action'] == 'delete'){
         echo "<script type=\"text/javascript\">alert('Filial excluido com sucesso!');</script>";
     }
@@ -28,18 +30,10 @@
     <tr>
     
     <?php
-        $query = 'SELECT id_filial, nome, ende
-        FROM filial
-        ORDER BY nome';
-        
-        $res = mysql_query($query, $link);
+        $filiais = mostraInformacoes('filial', 'nome', $link);
 
-        $qtd = mysql_num_rows($res);
-
-       
-
-        if( $qtd > 0 ){
-            while($linha = mysql_fetch_assoc($res)){
+        if( $filiais['qtd'] > 0 ){
+            while($linha = mysql_fetch_assoc($filiais['res'])){
                 echo '<tr>';
                 echo '<td>'.$linha['id_filial'].'</td>';
                 echo '<td>'.$linha['nome'].'</td>';

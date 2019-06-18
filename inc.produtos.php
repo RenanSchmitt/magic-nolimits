@@ -1,5 +1,7 @@
 <?php
     require_once('inc.connect.php');
+    require_once('inc.funcao.php');
+
     if(isset($_GET['msg']) == true && $_GET['action'] == 'delete'){
         echo "<script type=\"text/javascript\">alert('Produto excluido com sucesso!');</script>";
     }
@@ -31,16 +33,10 @@
     <tr>
     
     <?php
-        $query = 'SELECT id_produto, nome, valor, id_filial, id_fornecedor, img
-        FROM produto
-        ORDER BY nome';
-        
-        $res = mysql_query($query, $link);
+        $produtos = mostraInformacoes('produto', 'nome', $link);
 
-        $qtd = mysql_num_rows($res);
-
-        if( $qtd > 0 ){
-            while($linha = mysql_fetch_assoc($res)){
+        if( $produtos['qtd'] > 0 ){
+            while($linha = mysql_fetch_assoc($produtos['res'])){
                 echo '<tr>';
                 echo '<td>'.$linha['id_produto'].'</td>';
                 echo '<td>'.$linha['nome'].'</td>';

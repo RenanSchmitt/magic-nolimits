@@ -1,6 +1,8 @@
 <?php
     require_once('inc.isAuth.php');
     require_once('inc.connect.php');
+    require_once('inc.funcao.php');
+    
     if(isset($_GET['msg']) == true && $_GET['action'] == 'delete'){
         echo "<script type=\"text/javascript\">alert('Venda excluido com sucesso!');</script>";
     }
@@ -26,18 +28,10 @@
     <tr>
     
     <?php
-        $query = 'SELECT id_venda_itens, id_produto, qtd, valor, id_venda
-        FROM venda_itens
-        ORDER BY id_venda_itens';
-        
-        $res = mysql_query($query, $link);
+        $vendas = mostraInformacoes('venda_itens', 'id_venda_itens', $link);
 
-        $qtd = mysql_num_rows($res);
-
-       
-
-        if( $qtd > 0 ){
-            while($linha = mysql_fetch_assoc($res)){
+        if( $vendas['qtd'] > 0 ){
+            while($linha = mysql_fetch_assoc($vendas['res'])){
                 echo '<tr>';
                 echo '<td>'.$linha['id_venda_itens'].'</td>';
                 echo '<td>'.$linha['id_produto'].'</td>';

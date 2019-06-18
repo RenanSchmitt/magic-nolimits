@@ -2,6 +2,7 @@
 <?php
       require_once('inc.connect.php');
       require_once('inc.isAuth.php');
+      require_once('inc.funcao.php');
       if(isset($_GET['msg']) == true && $_GET['action'] == 'delete'){
           echo "<script type=\"text/javascript\">alert('Cliente excluido com sucesso!');</script>";
       }
@@ -27,18 +28,10 @@
     <tr>
     
     <?php
-        $query = 'SELECT id, nome, email, senha, img
-        FROM cliente
-        ORDER BY nome';
-        
-        $res = mysql_query($query, $link);
+        $clientes = mostraInformacoes('cliente', 'nome', $link);
 
-        $qtd = mysql_num_rows($res);
-
-       
-
-        if( $qtd > 0 ){
-            while($linha = mysql_fetch_assoc($res)){
+        if( $clientes['qtd'] > 0 ){
+            while($linha = mysql_fetch_assoc($clientes['res'])){
                 echo '<tr>';
                 echo '<td>'.$linha['id'].'</td>';
                 echo '<td>'.$linha['nome'].'</td>';

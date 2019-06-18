@@ -1,7 +1,6 @@
 <?php
     require_once('inc.connect.php');
    
-
     (isset($_POST['nome']) and !empty($_POST['nome'])) ? $nome = $_POST['nome'] : $erro = true;
 
     (isset($_POST['valor']) and !empty($_POST['valor'])) ? $valor = $_POST['valor'] : $erro = true;
